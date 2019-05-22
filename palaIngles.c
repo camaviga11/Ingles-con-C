@@ -2,10 +2,7 @@
 guardando y evaluando con opciones multiples*/
 
 #include <stdio.h>
-void ingEsp(void);
-void espIng(void);
-void mixto(void);
-void leerTexto(void);
+#include "definiciones.h"
 int main(){
    char opcion='0';
    while(opcion!='4'){
@@ -39,12 +36,28 @@ int main(){
   }
   return 0;
 }
+
 void ingEsp(void){
   printf("Ingles a español\n");
+  leerTexto();
 }
 void espIng(void){
   printf("Español a ingles\n");
 }
 void mixto(void){
   printf("Aprendizaje mixto\n");
+}
+void leerTexto(void){
+  FILE *palabrasing;
+  char caracter;
+  palabrasing=fopen("palabras_ingles.txt","r");
+  if(palabrasing==NULL){
+    printf("Error de apertura del archivo\n");
+  }else{
+    printf("El contenido del archivo es \n");
+    while((caracter=fgetc(palabrasing))!=EOF){
+      printf("%c",caracter);
+    }
+  }
+  fclose(palabrasing);
 }
