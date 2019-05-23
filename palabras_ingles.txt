@@ -1,7 +1,7 @@
-Hello
-off
-Power
-Good
-Like
-Return
-Speed
+Hello      |Hola
+off        |Apagado
+Power      |Poder
+Good       |Bueno
+Return     |Retorno
+Speed      |Velocidad
+Happy      |Feliz

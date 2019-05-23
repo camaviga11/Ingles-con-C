@@ -48,6 +48,7 @@ void mixto(void){
   printf("Aprendizaje mixto\n");
 }
 void leerTexto(void){
+  int cont=0;
   FILE *palabrasing;
   char caracter;
   palabrasing=fopen("palabras_ingles.txt","r");
@@ -57,7 +58,11 @@ void leerTexto(void){
     printf("El contenido del archivo es \n");
     while((caracter=fgetc(palabrasing))!=EOF){
       printf("%c",caracter);
+      if(caracter=='\n'){
+        cont++;
+      }
     }
   }
+  printf("\n<<%d>>\n",cont);
   fclose(palabrasing);
 }
