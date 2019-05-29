@@ -43,26 +43,45 @@ void ingEsp(void){
 }
 void espIng(void){
   printf("Español a ingles\n");
+  leerTexto();
 }
 void mixto(void){
   printf("Aprendizaje mixto\n");
 }
 void leerTexto(void){
-  int cont=0;
-  FILE *palabrasing;
+  int cont1=0;
+  int cont2=0;
+  FILE *lista_ing;
+  FILE *lista_esp;
   char caracter;
-  palabrasing=fopen("palabras_ingles.txt","r");
-  if(palabrasing==NULL){
+  //para leer la lista de palabras en ingles
+  lista_ing=fopen("ingles_lista.txt","r");
+  if(lista_ing==NULL){
     printf("Error de apertura del archivo\n");
   }else{
     printf("El contenido del archivo es \n");
-    while((caracter=fgetc(palabrasing))!=EOF){
+    while((caracter=fgetc(lista_ing))!=EOF){
       printf("%c",caracter);
       if(caracter=='\n'){
-        cont++;
+        cont1++;
       }
     }
   }
-  printf("\n<<%d>>\n",cont);
-  fclose(palabrasing);
+  //Para leer la lista de palabras en español
+  lista_esp=fopen("espanol_lista.txt","r");
+  if(lista_esp==NULL){
+    printf("Error de apertura del archivo\n");
+  }else{
+    printf("El contenido del archivo es \n");
+    while((caracter=fgetc(lista_esp))!=EOF){
+      printf("%c",caracter);
+      if(caracter=='\n'){
+        cont2++;
+      }
+    }
+  }
+  printf("\n<<Ingles: %d>>\n",cont1);
+  printf("\n<<Español: %d>>\n",cont2);
+  fclose(lista_ing);
+  fclose(lista_esp);
 }
